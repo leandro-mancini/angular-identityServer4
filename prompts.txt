@@ -1,0 +1,9 @@
+{
+    IdentityServer4
+    identity-server-4
+    true
+    false
+    
+    
+    npm run env -s
+}

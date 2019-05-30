@@ -1,0 +1,19 @@
+{
+  "generator-ngx-apollo": {
+    "version": "0.0.1",
+    "props": {
+      "location": "path",
+      "target": [
+        "web"
+      ],
+      "appName": "IdentityServer4",
+      "appDescription": "",
+      "pwa": true,
+      "angulartics": false,
+      "hotjar": false,
+      "projectName": "identity-server-4",
+      "packageManager": "npm",
+      "mobile": []
+    }
+  }
+}
