@@ -5,3 +5,5 @@
   <mat-divider></mat-divider>
 </mat-list>
 <button mat-menu-item (click)="logout()">{{ 'SAIR' | translate }}</button>
+
+<pre>{{identity | async | json}}</pre>

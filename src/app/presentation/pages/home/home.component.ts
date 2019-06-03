@@ -35,10 +35,9 @@ export class HomeComponent implements OnInit {
     this.isLoading = true;
 
     this.usuarioController.obterAll()
-    .pipe(finalize(() => {
-      this.isLoading = false;
-    }))
     .subscribe((usuarios: UsuarioModel) => {
+      this.isLoading = false;
+
       this.usuarios.push(usuarios);
 
       this.displayedColumns = ['id', 'username', 'senha', 'action'];

@@ -21,6 +21,9 @@ import { UsuarioValidator } from './core/usecases/usuario/base/validations/Usuar
 import { IUsuarioValidator } from './core/interfaces/validations/IUsuarioValidator';
 import { IUsuarioController } from './core/interfaces/controllers/IUsuarioController';
 import { UsuarioController } from './presentation/controllers/usuario.controller';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { NgOidcClientModule } from 'ng-oidc-client';
 
 
 @NgModule({
@@ -29,14 +32,28 @@ import { UsuarioController } from './presentation/controllers/usuario.controller
   ],
   imports: [
     BrowserModule,
-        ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-        BrowserAnimationsModule,
-        NgbModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
+    NgbModule,
     MaterialModule,
     CoreModule,
     DataModule,
     InfraModule,
-    PresentationModule
+    PresentationModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    NgOidcClientModule.forRoot({
+      oidc_config: {
+        client_id: 'angular_spa',
+        response_type: 'id_token token',
+        scope: 'openid profile email API_ARQUITETURA',
+        authority: 'https://localhost:5041',
+        redirect_uri: 'http://localhost:4200/callback.html',
+        post_logout_redirect_uri: 'http://localhost:4200/signout-callback.html',
+        silent_redirect_uri: 'http://localhost:4200/renew-callback.html',
+        automaticSilentRenew: true
+      }
+    })
   ],
   providers: [
     {

@@ -18,7 +18,7 @@ export class Route {
       path: '',
       component: BaseComponent,
       children: routes,
-      canActivate: [RouteGuard],
+      // canActivate: [RouteGuard],
       // Reuse ShellComponent instance when navigating between child views
       data: { reuse: true }
     };
